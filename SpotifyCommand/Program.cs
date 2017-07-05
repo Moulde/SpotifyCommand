@@ -20,8 +20,16 @@ namespace SpotifyCommand
 
             var command = args.First();
 
-            SpotifyService service = new SpotifyService();
-            service.Execute(command);
+            try
+            {
+                SpotifyService service = new SpotifyService();
+                service.Execute(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception occurred..");
+                Console.WriteLine(ex.Message);
+            }
 
             Console.WriteLine("Bye..");
         }
